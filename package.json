@@ -6,9 +6,9 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kenngo81/drawcutom.git"
+    "url": "git+https://github.com/kenngo81/drawcustom.git"
   },
-  "homepage": "https://github.com/kenngo81/drawcutom",
+  "homepage": "https://github.com/kenngo81/drawcustom",
   "type": "module",
   "main": "./dist-lib/drawcustom.js",
   "module": "./dist-lib/drawcustom.js",
