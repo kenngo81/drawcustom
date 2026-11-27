@@ -1,7 +1,9 @@
 # DrawCustom
 
 Bảng vẽ vô hạn cho React, có **pin đặt tên** (ID cố định, tìm kiếm, link/nhúng) và **tầng lưu trữ thay được** (adapter).
+
 ![Giao diện DrawCustom](docs/screenshot.png)
+
 Dùng được theo hai cách:
 
 - **Ứng dụng độc lập** — `npm run dev` / `npm run build`. Dữ liệu chỉ nằm trong trình duyệt người dùng (localStorage).
