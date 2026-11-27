@@ -144,7 +144,7 @@ npm run build:lib  # build thư viện → dist-lib/
 
 ## Giấy phép & bản quyền
 
-Copyright © 2026 **Duc Ngo** ([@kenngo81](https://github.com/kenngo81)). Mã nguồn gốc: https://github.com/kenngo81/DrawCustom
+Copyright © 2026 **Duc Ngo** ([@kenngo81](https://github.com/kenngo81)). Mã nguồn gốc: https://github.com/kenngo81/drawcutom
 
 DrawCustom được phát hành theo giấy phép **[GNU AGPL-3.0](LICENSE)**. Bạn được tự do dùng, sửa và phân phối lại,
 kể cả cho mục đích thương mại, với điều kiện:

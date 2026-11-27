@@ -15,6 +15,10 @@ export default defineConfig({
       cssFileName: 'style',
     },
     rollupOptions: {
+      output: {
+        banner:
+          '/*! DrawCustom | (c) 2026 Duc Ngo | AGPL-3.0-or-later | https://github.com/kenngo81/drawcutom */',
+      },
       // Provided by the host app (one copy of React/Redux per page)
       external: [
         'react',
