@@ -1,0 +1,13 @@
+/* Page-level styles for the standalone DrawCustom app only (not part of the library). */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8f9fa;
+  color: #1e1e1e;
+}

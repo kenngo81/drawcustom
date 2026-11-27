@@ -1,0 +1,1112 @@
+/*
+ * DrawCustom styles. Everything is scoped under .dc-root so the board never
+ * restyles the host page. Generated from the original app styles by scopecss.
+ */
+.dc-root,
+.dc-root *,
+.dc-root *::before,
+.dc-root *::after {
+  box-sizing: border-box;
+}
+
+.dc-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  /* Own typography: never inherit the host page's font / colour / line-height */
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1e1e1e;
+  text-align: left;
+  isolation: isolate;
+  /* Lets nested popovers size themselves against the BOARD width (cqw), not their parent */
+  container-type: inline-size;
+  container-name: dc-board;
+}
+
+/* Neutralise common host resets/themes on form controls inside the board */
+.dc-root button,
+.dc-root input,
+.dc-root select,
+.dc-root textarea {
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.dc-root .canvas-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  background-color: #f9fafb;
+}
+
+.dc-root .canvas-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dc-root .floating-dock {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dc-root .bottom-dock {
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dc-root .top-left-dock {
+  top: 14px;
+  left: 14px;
+}
+
+.dc-root .bottom-left-dock {
+  bottom: 16px;
+  left: 14px;
+}
+
+.dc-root .brand-badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding: 0 8px;
+  color: #111827;
+}
+
+.dc-root .dock-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 4px;
+}
+
+.dc-root .icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.dc-root .icon-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.06);
+  color: #111827;
+}
+
+.dc-root .icon-btn.active {
+  background: #2f80ed;
+  color: #ffffff;
+}
+
+.dc-root .icon-btn.danger:hover:not(:disabled) {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.dc-root .icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.dc-root .shortcut-hint {
+  position: absolute;
+  right: 3px;
+  bottom: 1px;
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.dc-root .zoom-readout {
+  min-width: 48px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+}
+
+.dc-root .zoom-readout:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.dc-root .floating-panel {
+  position: absolute;
+  z-index: 20;
+  top: 14px;
+  right: 14px;
+  width: 224px;
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+}
+
+.dc-root .panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-root .panel-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-root .panel-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+}
+
+.dc-root .custom-color-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px dashed #9ca3af;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  cursor: pointer;
+}
+
+.dc-root .custom-color-trigger input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.dc-root .swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  justify-items: center;
+}
+
+.dc-root .color-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.dc-root .color-swatch:hover {
+  transform: scale(1.12);
+}
+
+.dc-root .color-swatch.selected {
+  outline: 2px solid #2f80ed;
+  outline-offset: 2px;
+}
+
+.dc-root .btn-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.dc-root .btn-group.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dc-root .mini-btn {
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  background: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dc-root .mini-btn:hover {
+  background: #f3f4f6;
+}
+
+.dc-root .mini-btn.active {
+  background: #2f80ed;
+  border-color: #2f80ed;
+  color: #ffffff;
+}
+
+.dc-root .value-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.dc-root .font-select {
+  width: 100%;
+  height: 32px;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0 8px;
+  font-size: 13px;
+  background: #ffffff;
+  color: #111827;
+  cursor: pointer;
+}
+
+.dc-root .sticker-drawer {
+  position: absolute;
+  z-index: 25;
+  bottom: 74px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  max-width: calc(100% - 24px);
+  max-height: 390px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
+.dc-root .sticker-search {
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0 10px;
+  font-size: 12px;
+  outline: none;
+}
+
+.dc-root .sticker-search:focus {
+  border-color: #2f80ed;
+}
+
+.dc-root .sticker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-root .upload-svg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f9fafb;
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+}
+
+.dc-root .upload-svg-btn:hover {
+  background: #e5e7eb;
+}
+
+.dc-root .sticker-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.dc-root .sticker-tab {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 7px;
+  background: #f3f4f6;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.dc-root .sticker-tab.active {
+  background: #2f80ed;
+  color: #ffffff;
+}
+
+.dc-root .sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.dc-root .sticker-cell {
+  height: 58px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.dc-root .sticker-cell:hover {
+  transform: scale(1.06);
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.dc-root .action-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dc-root .inline-text-editor {
+  position: absolute;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid #2f80ed;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0;
+  outline: none;
+  resize: none;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  line-height: 1.25;
+  overflow: hidden;
+}
+
+/* ---------- Pin: name editor ---------- */
+.dc-root .pin-name-editor {
+  position: absolute;
+  z-index: 30;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1.5px solid #e03131;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  font: 600 13px Inter, system-ui, sans-serif;
+  color: #1e1e1e;
+  cursor: text;
+}
+
+.dc-root .pin-name-editor input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  user-select: text;
+}
+
+/* ---------- Pin: search ---------- */
+.dc-root .pin-search {
+  position: relative;
+  display: inline-flex;
+}
+
+.dc-root .pin-search-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -6px;
+  width: 280px;
+  /* % here would be the tiny search button: measure against the board instead */
+  max-width: calc(100cqw - 32px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.dc-root .pin-search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: -1px;
+}
+
+.dc-root .pin-search-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.dc-root .pin-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  font: 500 14px Inter, system-ui, sans-serif;
+  color: #111827;
+  background: transparent;
+  user-select: text;
+}
+
+.dc-root .pin-search-clear {
+  display: inline-flex;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.dc-root .pin-search-clear:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #374151;
+}
+
+.dc-root .pin-search-results {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.dc-root .pin-search-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font: 500 13px Inter, system-ui, sans-serif;
+  color: #1f2937;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dc-root .pin-search-item.active {
+  background: #fff0f0;
+}
+
+.dc-root .pin-search-item-icon {
+  color: #e03131;
+  flex-shrink: 0;
+}
+
+.dc-root .pin-search-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-root .pin-search-empty,
+.dc-root .pin-search-more {
+  padding: 10px;
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.dc-root .pin-name-meta {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #6b7280;
+  font: 500 11px Inter, system-ui, sans-serif;
+}
+
+.dc-root .pin-name-meta b {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.dc-root .pin-search-item-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.dc-root .pin-search-item-meta {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-root .pin-search-copy {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.dc-root .pin-search-copy:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #1f2937;
+}
+
+.dc-root .pin-name-hash {
+  color: #6b7280;
+  margin-right: 1px;
+}
+
+/* ---------- Panel show/hide ---------- */
+.dc-root .custom-color-trigger {
+  line-height: 0; /* centre the + icon exactly inside the circle */
+}
+
+.dc-root .custom-color-trigger svg {
+  pointer-events: none;
+}
+
+.dc-root .panel-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dc-root .panel-collapse-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.dc-root .panel-collapse-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #111827;
+}
+
+.dc-root .panel-reopen-btn {
+  position: absolute;
+  z-index: 20;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  color: #374151;
+  cursor: pointer;
+}
+
+.dc-root .panel-reopen-dot {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.dc-root .dock-reopen-btn {
+  gap: 2px;
+  padding: 6px 10px 6px 6px;
+  color: #374151;
+  cursor: pointer;
+  font: inherit;
+}
+
+.dc-root .dock-reopen-btn .icon-btn {
+  pointer-events: none;
+}
+
+/* ---------- Mobile ---------- */
+.dc-root.is-compact .brand-badge,
+.dc-root.is-compact .brand-badge + .dock-divider {
+    display: none;
+  }
+
+.dc-root.is-compact .top-left-dock {
+    top: 10px;
+    left: 10px;
+  }
+
+.dc-root.is-compact .panel-reopen-btn {
+    top: 10px;
+    right: 10px;
+  }
+
+/* Open style panel sits below the top bar and above the bottom toolbar */
+.dc-root.is-compact .floating-panel.style-panel {
+    top: 64px;
+    right: 10px;
+    width: min(224px, calc(100% - 20px));
+    max-height: calc(100% - 140px);
+  }
+
+/* Tool dock: never wider than the screen, swipe sideways for more tools */
+.dc-root.is-compact .bottom-dock {
+    bottom: 10px;
+    max-width: calc(100% - 16px);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+.dc-root.is-compact .bottom-dock::-webkit-scrollbar {
+    display: none;
+  }
+
+.dc-root.is-compact .bottom-dock > * {
+    flex-shrink: 0;
+  }
+
+.dc-root.is-compact .bottom-left-dock {
+    bottom: 68px;
+    left: 10px;
+  }
+
+/* ---------- Viewer / embed ---------- */
+.dc-root .viewer-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f3f5;
+  color: #495057;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.dc-root.mode-embed .top-left-dock {
+  top: 8px;
+  left: 8px;
+  padding: 4px;
+}
+
+.dc-root.mode-embed .bottom-left-dock {
+  bottom: 8px;
+  left: 8px;
+  padding: 4px;
+}
+
+.dc-root .board-status {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px;
+  text-align: center;
+  background: rgba(249, 250, 251, 0.92);
+  color: #374151;
+  font-size: 14px;
+}
+
+.dc-root .board-status-hint {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ---------- Share dialog ---------- */
+.dc-root .share-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(17, 24, 39, 0.35);
+}
+
+.dc-root .share-dialog {
+  width: min(960px, 100%);
+  max-height: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  user-select: text;
+}
+
+.dc-root .share-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  font-size: 15px;
+}
+
+.dc-root .share-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 18px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.dc-root .share-settings,
+.dc-root .share-output {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.dc-root .share-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-root .share-dialog select,
+.dc-root .share-dialog input,
+.dc-root .share-dialog textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font: 500 13px Inter, system-ui, sans-serif;
+  user-select: text;
+}
+
+.dc-root .share-dialog textarea {
+  resize: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.dc-root .share-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dc-root .share-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font: 600 12px Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.dc-root .share-chip small {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.dc-root .share-chip.active {
+  border-color: #2f80ed;
+  background: #eaf2fe;
+  color: #1c64d6;
+}
+
+.dc-root .share-custom-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.dc-root .share-custom-size input {
+  width: 110px;
+}
+
+.dc-root .share-secondary-btn,
+.dc-root .share-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font: 600 12px Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.dc-root .share-secondary-btn {
+  align-self: flex-start;
+  padding: 7px 10px;
+}
+
+.dc-root .share-copy-btn {
+  padding: 4px 8px;
+}
+
+.dc-root .share-secondary-btn:hover,
+.dc-root .share-copy-btn:hover {
+  background: #f3f4f6;
+}
+
+.dc-root .share-warning {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff8e6;
+  border: 1px solid #ffe3a3;
+  color: #7a5a00;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.dc-root .share-warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dc-root .share-warning p {
+  margin: 0 0 6px;
+}
+
+.dc-root .share-warning p:last-child {
+  margin-bottom: 0;
+}
+
+.dc-root .share-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-root .share-copy-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-root .share-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-root .share-preview-frame {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.dc-root .share-preview-frame iframe {
+  border: 0;
+  display: block;
+}
+
+.dc-root.is-compact .share-body {
+    grid-template-columns: 1fr;
+  }
+
+
+.dc-root .panel-hint {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ---------- Image annotator ---------- */
+.dc-annotator {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #f1f3f5;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1e1e1e;
+  text-align: left;
+}
+
+.dc-annotator-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dc-annotator-titles {
+  min-width: 0;
+}
+
+.dc-annotator-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dc-annotator-hint {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dc-annotator-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dc-annotator-error {
+  font-size: 12px;
+  color: #c92a2a;
+}
+
+.dc-annotator-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font: 600 13px Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.dc-annotator-btn:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.dc-annotator-btn.primary {
+  border-color: #2f80ed;
+  background: #2f80ed;
+  color: #ffffff;
+}
+
+.dc-annotator-btn.primary:hover:not(:disabled) {
+  background: #1c64d6;
+}
+
+.dc-annotator-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.dc-annotator-canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+@keyframes dc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dc-spin {
+  animation: dc-spin 0.9s linear infinite;
+}
+
+/* The picture being annotated gets a soft frame so its edges are visible */
+.dc-root .dc-background {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.18));
+}
+
+.dc-annotator-canvas > .dc-root {
+  position: absolute;
+  inset: 0;
+}
+
+.dc-root .share-preview-size {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.dc-root .share-preview-frame {
+  transition: width 0.2s ease, height 0.2s ease;
+}

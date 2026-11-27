@@ -1,0 +1,58 @@
+{
+  "name": "drawcustom",
+  "version": "0.2.1",
+  "description": "Embeddable infinite whiteboard for React with named, shareable pins and pluggable storage adapters.",
+  "author": "Duc Ngo (https://github.com/kenngo81)",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenngo81/DrawCustom.git"
+  },
+  "homepage": "https://github.com/kenngo81/DrawCustom",
+  "type": "module",
+  "main": "./dist-lib/drawcustom.js",
+  "module": "./dist-lib/drawcustom.js",
+  "types": "./dist-lib/types/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist-lib/types/lib/index.d.ts",
+      "import": "./dist-lib/drawcustom.js"
+    },
+    "./style.css": "./dist-lib/style.css"
+  },
+  "files": [
+    "dist-lib",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:lib": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json",
+    "pack:lib": "npm run build:lib && npm pack",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "lucide-react": ">=0.511.0",
+    "react-redux": "^9.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
